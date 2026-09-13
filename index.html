@@ -11,14 +11,250 @@
         content="ClipZone - Watch funny clips, crazy moments and unforgettable laughs."
     >
 
+    <meta name="robots" content="index, follow">
+
     <title>ClipZone | Funny Clips</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            color: #222;
+            line-height: 1.5;
+        }
+
+        /* NAVIGATION */
+
+        .navbar {
+            background: #111;
+            color: white;
+            padding: 18px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: #ff3b30;
+        }
+
+        .search {
+            width: 300px;
+            max-width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 25px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        /* HERO */
+
+        .hero {
+            background: linear-gradient(135deg, #111, #333);
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* CONTAINER */
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+
+        /* ADS */
+
+        .ad-box {
+            background: white;
+            border: 1px dashed #aaa;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 25px 0;
+            color: #777;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* VIDEO GRID */
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .video-card iframe {
+            display: block;
+            width: 100%;
+            height: 220px;
+            border: none;
+        }
+
+        .thumbnail {
+            height: 220px;
+            background: linear-gradient(135deg, #222, #555);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: white;
+        }
+
+        .play {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #ff3b30;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+        }
+
+        .video-card h3 {
+            padding: 15px 15px 5px;
+            font-size: 18px;
+        }
+
+        .video-card p {
+            padding: 0 15px 18px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* INFO SECTIONS */
+
+        .info-section {
+            background: white;
+            margin-top: 40px;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .info-section h2 {
+            margin-bottom: 12px;
+        }
+
+        .info-section p {
+            color: #555;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+            margin-top: 30px;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 650px) {
+
+            .navbar {
+                flex-direction: column;
+            }
+
+            .logo {
+                font-size: 25px;
+            }
+
+            .search {
+                width: 100%;
+            }
+
+            .hero {
+                padding: 50px 20px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .container {
+                width: 94%;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
     <!-- NAVIGATION -->
+
     <header class="navbar">
 
         <div class="logo">
@@ -26,15 +262,18 @@
         </div>
 
         <input
+            id="searchInput"
             class="search"
             type="search"
             placeholder="🔍 Search funny clips..."
+            aria-label="Search funny clips"
         >
 
     </header>
 
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
+
     <section class="hero">
 
         <h1>😂 Watch. Laugh. Repeat.</h1>
@@ -48,25 +287,31 @@
 
 
     <!-- MAIN CONTENT -->
+
     <main class="container">
+
+        <!-- ADVERTISEMENT PLACEHOLDER -->
+
+        <div class="ad-box">
+            Advertisement
+        </div>
+
 
         <h2 class="section-title">
             😂 Latest Funny Clips
         </h2>
 
 
-        <div class="video-grid">
+        <div class="video-grid" id="videoGrid">
 
 
-            <!-- CLIP 1 - YOUR ACTUAL VIDEO -->
-            <article class="video-card">
+            <!-- CLIP 1 - REAL VIDEO -->
+
+            <article class="video-card" data-title="Funny Clip 1">
 
                 <iframe
-                    width="100%"
-                    height="220"
                     src="https://www.youtube.com/embed/YFMIPCr_ZqI"
                     title="ClipZone Funny Clip #1"
-                    frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
                 </iframe>
@@ -79,9 +324,13 @@
 
 
             <!-- CLIP 2 -->
-            <article class="video-card">
 
-                <div class="thumbnail">
+            <article class="video-card" data-title="Funniest Moment 2">
+
+                <div
+                    class="thumbnail"
+                    onclick="showComingSoon('Funniest Moment #2')"
+                >
                     <div class="play">▶</div>
                 </div>
 
@@ -92,9 +341,13 @@
 
 
             <!-- CLIP 3 -->
-            <article class="video-card">
 
-                <div class="thumbnail">
+            <article class="video-card" data-title="Can't Stop Laughing 3">
+
+                <div
+                    class="thumbnail"
+                    onclick="showComingSoon('Can\\'t Stop Laughing #3')"
+                >
                     <div class="play">▶</div>
                 </div>
 
@@ -105,9 +358,13 @@
 
 
             <!-- CLIP 4 -->
-            <article class="video-card">
 
-                <div class="thumbnail">
+            <article class="video-card" data-title="Unexpected Moment 4">
+
+                <div
+                    class="thumbnail"
+                    onclick="showComingSoon('Unexpected Moment #4')"
+                >
                     <div class="play">▶</div>
                 </div>
 
@@ -118,9 +375,13 @@
 
 
             <!-- CLIP 5 -->
-            <article class="video-card">
 
-                <div class="thumbnail">
+            <article class="video-card" data-title="Crazy Reaction 5">
+
+                <div
+                    class="thumbnail"
+                    onclick="showComingSoon('Crazy Reaction #5')"
+                >
                     <div class="play">▶</div>
                 </div>
 
@@ -131,9 +392,13 @@
 
 
             <!-- CLIP 6 -->
-            <article class="video-card">
 
-                <div class="thumbnail">
+            <article class="video-card" data-title="Funniest Video 6">
+
+                <div
+                    class="thumbnail"
+                    onclick="showComingSoon('Funniest Video #6')"
+                >
                     <div class="play">▶</div>
                 </div>
 
@@ -144,9 +409,13 @@
 
 
             <!-- CLIP 7 -->
-            <article class="video-card">
 
-                <div class="thumbnail">
+            <article class="video-card" data-title="That Was Wild 7">
+
+                <div
+                    class="thumbnail"
+                    onclick="showComingSoon('That Was Wild #7')"
+                >
                     <div class="play">▶</div>
                 </div>
 
@@ -157,9 +426,13 @@
 
 
             <!-- CLIP 8 -->
-            <article class="video-card">
 
-                <div class="thumbnail">
+            <article class="video-card" data-title="LOL Moment 8">
+
+                <div
+                    class="thumbnail"
+                    onclick="showComingSoon('LOL Moment #8')"
+                >
                     <div class="play">▶</div>
                 </div>
 
@@ -170,9 +443,13 @@
 
 
             <!-- CLIP 9 -->
-            <article class="video-card">
 
-                <div class="thumbnail">
+            <article class="video-card" data-title="Nobody Expected This 9">
+
+                <div
+                    class="thumbnail"
+                    onclick="showComingSoon('Nobody Expected This #9')"
+                >
                     <div class="play">▶</div>
                 </div>
 
@@ -183,9 +460,13 @@
 
 
             <!-- CLIP 10 -->
-            <article class="video-card">
 
-                <div class="thumbnail">
+            <article class="video-card" data-title="Funny Fail 10">
+
+                <div
+                    class="thumbnail"
+                    onclick="showComingSoon('Funny Fail #10')"
+                >
                     <div class="play">▶</div>
                 </div>
 
@@ -196,9 +477,13 @@
 
 
             <!-- CLIP 11 -->
-            <article class="video-card">
 
-                <div class="thumbnail">
+            <article class="video-card" data-title="Try Not To Laugh 11">
+
+                <div
+                    class="thumbnail"
+                    onclick="showComingSoon('Try Not To Laugh #11')"
+                >
                     <div class="play">▶</div>
                 </div>
 
@@ -209,9 +494,13 @@
 
 
             <!-- CLIP 12 -->
-            <article class="video-card">
 
-                <div class="thumbnail">
+            <article class="video-card" data-title="Epic Reaction 12">
+
+                <div
+                    class="thumbnail"
+                    onclick="showComingSoon('Epic Reaction #12')"
+                >
                     <div class="play">▶</div>
                 </div>
 
@@ -222,9 +511,13 @@
 
 
             <!-- CLIP 13 -->
-            <article class="video-card">
 
-                <div class="thumbnail">
+            <article class="video-card" data-title="What Just Happened 13">
+
+                <div
+                    class="thumbnail"
+                    onclick="showComingSoon('What Just Happened #13')"
+                >
                     <div class="play">▶</div>
                 </div>
 
@@ -235,9 +528,13 @@
 
 
             <!-- CLIP 14 -->
-            <article class="video-card">
 
-                <div class="thumbnail">
+            <article class="video-card" data-title="Funniest Moment 14">
+
+                <div
+                    class="thumbnail"
+                    onclick="showComingSoon('Funniest Moment #14')"
+                >
                     <div class="play">▶</div>
                 </div>
 
@@ -248,52 +545,72 @@
 
 
             <!-- CLIP 15 -->
-            <article class="video-card">
 
-                <div class="thumbnail">
+            <article class="video-card" data-title="Unexpected 15">
+
+                <div
+                    class="thumbnail"
+                    onclick="showComingSoon('Unexpected #15')"
+                >
                     <div class="play">▶</div>
                 </div>
 
                 <h3>😂 Unexpected 😂 #15</h3>
+
                 <p>Funny</p>
 
             </article>
 
 
             <!-- CLIP 16 -->
-            <article class="video-card">
 
-                <div class="thumbnail">
+            <article class="video-card" data-title="Crazy Moment 16">
+
+                <div
+                    class="thumbnail"
+                    onclick="showComingSoon('Crazy Moment #16')"
+                >
                     <div class="play">▶</div>
                 </div>
 
                 <h3>😂 Crazy Moment #16</h3>
+
                 <p>Funny</p>
 
             </article>
 
 
             <!-- CLIP 17 -->
-            <article class="video-card">
 
-                <div class="thumbnail">
+            <article class="video-card" data-title="Best Funny Clip 17">
+
+                <div
+                    class="thumbnail"
+                    onclick="showComingSoon('Best Funny Clip #17')"
+                >
                     <div class="play">▶</div>
                 </div>
 
                 <h3>😂 Best Funny Clip #17</h3>
+
                 <p>Funny</p>
 
             </article>
 
 
             <!-- CLIP 18 -->
-            <article class="video-card">
 
-                <div class="thumbnail">
+            <article class="video-card" data-title="Clip of the Week 18">
+
+                <div
+                    class="thumbnail"
+                    onclick="showComingSoon('Clip of the Week #18')"
+                >
                     <div class="play">▶</div>
                 </div>
 
                 <h3>😂 Clip of the Week #18</h3>
+
                 <p>Funny</p>
 
             </article>
@@ -301,10 +618,69 @@
 
         </div>
 
+
+        <!-- SECOND ADVERTISEMENT -->
+
+        <div class="ad-box">
+            Advertisement
+        </div>
+
+
+        <!-- ABOUT -->
+
+        <section class="info-section" id="about">
+
+            <h2>ℹ️ About ClipZone</h2>
+
+            <p>
+                ClipZone is a place for funny clips,
+                crazy moments and entertaining videos.
+                Our goal is to give visitors a simple
+                place to discover and enjoy entertaining content.
+            </p>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section class="info-section" id="contact">
+
+            <h2>📩 Contact</h2>
+
+            <p>
+                Have a question, suggestion or business
+                inquiry? Contact the ClipZone team.
+            </p>
+
+            <br>
+
+            <p>
+                Email: your-email@example.com
+            </p>
+
+        </section>
+
+
+        <!-- PRIVACY -->
+
+        <section class="info-section" id="privacy">
+
+            <h2>🔒 Privacy</h2>
+
+            <p>
+                ClipZone respects your privacy.
+                This page will contain our complete
+                privacy policy before we apply for advertising.
+            </p>
+
+        </section>
+
     </main>
 
 
     <!-- FOOTER -->
+
     <footer>
 
         <p>
@@ -315,9 +691,64 @@
             © 2026 ClipZone. All rights reserved.
         </p>
 
+        <p>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="#privacy">Privacy</a>
+        </p>
+
     </footer>
-    
-        <script src="script.js"></script>
-    
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        /* SEARCH */
+
+        const searchInput = document.getElementById("searchInput");
+
+        const videoCards = document.querySelectorAll(".video-card");
+
+        searchInput.addEventListener("input", function () {
+
+            const searchText =
+                searchInput.value.toLowerCase().trim();
+
+            videoCards.forEach(function (card) {
+
+                const title =
+                    card.dataset.title.toLowerCase();
+
+                if (title.includes(searchText)) {
+
+                    card.style.display = "";
+
+                } else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+        });
+
+
+        /* PLACEHOLDER VIDEO MESSAGE */
+
+        function showComingSoon(title) {
+
+            alert(
+                title +
+                " is coming soon! 🎬\n\n" +
+                "We're adding more ClipZone videos."
+            );
+
+        }
+
+    </script>
+
 </body>
+
                     </html>
