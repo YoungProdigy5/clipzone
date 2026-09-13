@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b0b0f;
+    color: white;
+}
+
+.navbar {
+    background: #111118;
+    padding: 18px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #ff1744;
+}
+
+.search {
+    background: #22222c;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 18px;
+    color: white;
+    width: 240px;
+}
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #191927, #09090d);
+}
+
+.hero h1 {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    color: #aaa;
+    font-size: 17px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 45px auto;
+}
+
+.section-title {
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.video-card {
+    background: #15151d;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.2s;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+}
+
+.thumbnail {
+    height: 180px;
+    background: linear-gradient(135deg, #292936, #111118);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.play {
+    background: #ff1744;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+
+.video-card h3 {
+    padding: 15px 15px 5px;
+}
+
+.video-card p {
+    padding: 0 15px 15px;
+    color: #999;
+}
+
+footer {
+    text-align: center;
+    padding: 35px;
+    color: #777;
+}
+
+@media (max-width: 800px) {
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+}
+
+@media (max-width: 550px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .search {
+        width: 100%;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+}
