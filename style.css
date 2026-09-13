@@ -1,143 +1,540 @@
+/* =========================================
+   CLIPZONE 2.0
+   Modern Video Platform Design
+   ========================================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #0b0b0f;
-    color: white;
+html {
+    scroll-behavior: smooth;
 }
 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #07080c;
+    color: #ffffff;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   NAVBAR
+   ========================================= */
+
 .navbar {
-    background: #111118;
-    padding: 18px 6%;
+    background: rgba(15, 16, 23, 0.92);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    padding: 16px 6%;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    gap: 25px;
+
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 100;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
 }
 
+/* =========================================
+   LOGO
+   ========================================= */
+
 .logo {
-    font-size: 26px;
-    font-weight: bold;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+
+    text-shadow: 0 0 20px rgba(255, 23, 68, 0.15);
 }
 
 .logo span {
     color: #ff1744;
 }
 
+/* =========================================
+   SEARCH
+   ========================================= */
+
 .search {
-    background: #22222c;
-    border: none;
-    border-radius: 25px;
-    padding: 12px 18px;
+    width: 300px;
+
+    padding: 13px 20px;
+
+    background: #191a23;
+
+    border: 1px solid #292b37;
+    border-radius: 30px;
+
     color: white;
-    width: 240px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    transition: all 0.3s ease;
 }
+
+.search::placeholder {
+    color: #777985;
+}
+
+.search:focus {
+    border-color: #ff1744;
+
+    background: #1d1e28;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 23, 68, 0.08),
+        0 0 25px rgba(255, 23, 68, 0.12);
+}
+
+/* =========================================
+   HERO
+   ========================================= */
 
 .hero {
-    text-align: center;
+    min-height: 460px;
+
     padding: 80px 20px;
-    background: linear-gradient(135deg, #191927, #09090d);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(255, 23, 68, 0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(80, 70, 255, 0.08),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #171822,
+            #0b0c11 60%,
+            #07080c
+        );
+
+    border-bottom: 1px solid #1e202a;
 }
 
+/* Decorative glow */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    background: #ff1744;
+
+    opacity: 0.04;
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    top: -100px;
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+/* =========================================
+   HERO TEXT
+   ========================================= */
+
 .hero h1 {
-    font-size: 45px;
+    position: relative;
+
+    font-size: clamp(40px, 7vw, 68px);
+
+    font-weight: 900;
+
+    letter-spacing: -2px;
+
     margin-bottom: 15px;
+
+    text-shadow:
+        0 5px 30px rgba(0, 0, 0, 0.5);
 }
 
 .hero p {
-    color: #aaa;
-    font-size: 17px;
+    position: relative;
+
+    color: #a5a6b0;
+
+    font-size: 18px;
+
+    max-width: 600px;
 }
+
+/* =========================================
+   MAIN CONTAINER
+   ========================================= */
 
 .container {
     width: 90%;
-    max-width: 1200px;
-    margin: 45px auto;
+
+    max-width: 1250px;
+
+    margin: 55px auto;
 }
 
+/* =========================================
+   SECTION TITLE
+   ========================================= */
+
 .section-title {
-    font-size: 28px;
-    margin-bottom: 25px;
+    font-size: 30px;
+
+    font-weight: 800;
+
+    margin-bottom: 28px;
+
+    letter-spacing: -0.5px;
 }
+
+/* =========================================
+   VIDEO GRID
+   ========================================= */
 
 .video-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+
+    gap: 25px;
 }
+
+/* =========================================
+   VIDEO CARD
+   ========================================= */
 
 .video-card {
-    background: #15151d;
-    border-radius: 12px;
+    background: #12131a;
+
+    border: 1px solid #22242e;
+
+    border-radius: 16px;
+
     overflow: hidden;
-    transition: 0.2s;
+
+    position: relative;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.18);
 }
+
+/* Hover */
 
 .video-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+
+    border-color: rgba(255, 23, 68, 0.55);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.45),
+        0 0 25px rgba(255, 23, 68, 0.06);
 }
+
+/* =========================================
+   THUMBNAIL
+   ========================================= */
 
 .thumbnail {
-    height: 180px;
-    background: linear-gradient(135deg, #292936, #111118);
+    height: 190px;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #292b37,
+            #15161e
+        );
 }
+
+/* Thumbnail overlay */
+
+.thumbnail::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.35),
+            transparent 60%
+        );
+
+    pointer-events: none;
+}
+
+/* =========================================
+   PLAY BUTTON
+   ========================================= */
 
 .play {
-    background: #ff1744;
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
+    width: 62px;
+
+    height: 62px;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
-    font-size: 22px;
+
+    background: #ff1744;
+
+    border-radius: 50%;
+
+    font-size: 23px;
+
+    position: relative;
+
+    z-index: 2;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.45);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
+.video-card:hover .play {
+    transform: scale(1.12);
+
+    box-shadow:
+        0 0 0 8px rgba(255, 23, 68, 0.08),
+        0 10px 35px rgba(0, 0, 0, 0.55);
+}
+
+/* =========================================
+   VIDEO PLAYER
+   ========================================= */
+
+.video-card iframe {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    border: none;
+
+    background: #000;
+}
+
+/* =========================================
+   VIDEO TEXT
+   ========================================= */
+
 .video-card h3 {
-    padding: 15px 15px 5px;
+    padding: 16px 17px 5px;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    color: #ffffff;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
 }
 
 .video-card p {
-    padding: 0 15px 15px;
-    color: #999;
+    padding: 0 17px 17px;
+
+    color: #858793;
+
+    font-size: 14px;
 }
+
+/* =========================================
+   FOOTER
+   ========================================= */
 
 footer {
+    margin-top: 80px;
+
+    padding: 40px 20px;
+
     text-align: center;
-    padding: 35px;
-    color: #777;
+
+    background: #0e0f15;
+
+    border-top: 1px solid #20222b;
+
+    color: #70717c;
+
+    font-size: 14px;
 }
 
-@media (max-width: 800px) {
+/* =========================================
+   SCROLLBAR
+   ========================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #07080c;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #30323c;
+
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff1744;
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
     .video-grid {
         grid-template-columns: repeat(2, 1fr);
+
+        gap: 20px;
     }
 
-    .hero h1 {
-        font-size: 34px;
+    .search {
+        width: 240px;
+    }
+
+    .hero {
+        min-height: 400px;
     }
 }
 
-@media (max-width: 550px) {
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
     .navbar {
         flex-direction: column;
-        gap: 15px;
+
+        padding: 15px 5%;
+
+        gap: 14px;
+    }
+
+    .logo {
+        font-size: 25px;
     }
 
     .search {
         width: 100%;
     }
 
+    .hero {
+        min-height: 360px;
+
+        padding: 60px 20px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+
+        letter-spacing: -1.5px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .container {
+        width: 92%;
+
+        margin: 40px auto;
+    }
+
+    .section-title {
+        font-size: 25px;
+    }
+
     .video-grid {
         grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .thumbnail {
+        height: 220px;
+    }
+
+    .video-card h3 {
+        font-size: 16px;
     }
 }
+
+/* =========================================
+   VERY SMALL PHONES
+   ========================================= */
+
+@media (max-width: 380px) {
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .thumbnail {
+        height: 200px;
+    }
+    }
