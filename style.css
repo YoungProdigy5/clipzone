@@ -1,12 +1,7 @@
-/* =========================================
-   CLIPZONE 2.0
-   Modern Video Platform Design
-   ========================================= */
-
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -15,101 +10,67 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #07080c;
+    background: #07070b;
     color: #ffffff;
-    line-height: 1.5;
-    overflow-x: hidden;
 }
 
-/* =========================================
-   NAVBAR
-   ========================================= */
+/* NAVBAR */
 
 .navbar {
-    background: rgba(15, 16, 23, 0.92);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
     padding: 16px 6%;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    gap: 25px;
-
-    position: sticky;
-    top: 0;
-    z-index: 100;
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    background: rgba(12, 12, 18, 0.96);
+    border-bottom: 1px solid #24242e;
 }
 
-/* =========================================
-   LOGO
-   ========================================= */
-
 .logo {
-    font-size: 28px;
+    font-size: 27px;
     font-weight: 900;
     letter-spacing: 1px;
-
-    white-space: nowrap;
-
-    text-shadow: 0 0 20px rgba(255, 23, 68, 0.15);
 }
 
 .logo span {
     color: #ff1744;
 }
 
-/* =========================================
-   SEARCH
-   ========================================= */
+/* SEARCH */
 
 .search {
-    width: 300px;
+    width: 280px;
 
-    padding: 13px 20px;
+    padding: 12px 18px;
 
-    background: #191a23;
-
-    border: 1px solid #292b37;
+    border: 1px solid #30303b;
     border-radius: 30px;
-
-    color: white;
 
     outline: none;
 
-    font-size: 14px;
+    background: #181820;
+    color: white;
 
-    transition: all 0.3s ease;
+    font-size: 14px;
 }
 
 .search::placeholder {
-    color: #777985;
+    color: #888;
 }
 
 .search:focus {
     border-color: #ff1744;
-
-    background: #1d1e28;
-
-    box-shadow:
-        0 0 0 3px rgba(255, 23, 68, 0.08),
-        0 0 25px rgba(255, 23, 68, 0.12);
 }
 
-/* =========================================
-   HERO
-   ========================================= */
+/* HERO */
 
 .hero {
-    min-height: 460px;
-
-    padding: 80px 20px;
+    min-height: 430px;
 
     display: flex;
     flex-direction: column;
@@ -118,112 +79,51 @@ body {
 
     text-align: center;
 
-    position: relative;
-    overflow: hidden;
+    padding: 60px 20px;
 
     background:
-        radial-gradient(
-            circle at 50% 30%,
-            rgba(255, 23, 68, 0.12),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 20% 80%,
-            rgba(80, 70, 255, 0.08),
-            transparent 30%
-        ),
-        linear-gradient(
-            135deg,
-            #171822,
-            #0b0c11 60%,
-            #07080c
-        );
-
-    border-bottom: 1px solid #1e202a;
+        radial-gradient(circle at center, #292936 0%, #111118 40%, #07070b 80%);
 }
-
-/* Decorative glow */
-
-.hero::before {
-    content: "";
-
-    position: absolute;
-
-    width: 300px;
-    height: 300px;
-
-    background: #ff1744;
-
-    opacity: 0.04;
-
-    border-radius: 50%;
-
-    filter: blur(80px);
-
-    top: -100px;
-    left: 50%;
-
-    transform: translateX(-50%);
-}
-
-/* =========================================
-   HERO TEXT
-   ========================================= */
 
 .hero h1 {
-    position: relative;
-
-    font-size: clamp(40px, 7vw, 68px);
-
+    font-size: 52px;
     font-weight: 900;
 
-    letter-spacing: -2px;
+    margin-bottom: 18px;
 
-    margin-bottom: 15px;
-
-    text-shadow:
-        0 5px 30px rgba(0, 0, 0, 0.5);
+    letter-spacing: -1px;
 }
 
 .hero p {
-    position: relative;
-
-    color: #a5a6b0;
-
+    color: #a5a5b0;
     font-size: 18px;
 
     max-width: 600px;
+
+    line-height: 1.6;
 }
 
-/* =========================================
-   MAIN CONTAINER
-   ========================================= */
+/* MAIN */
 
 .container {
     width: 90%;
-
     max-width: 1250px;
 
     margin: 55px auto;
 }
 
-/* =========================================
-   SECTION TITLE
-   ========================================= */
+/* SECTION TITLE */
 
 .section-title {
     font-size: 30px;
 
-    font-weight: 800;
-
     margin-bottom: 28px;
 
-    letter-spacing: -0.5px;
+    border-left: 5px solid #ff1744;
+    padding-left: 14px;
 }
 
-/* =========================================
-   VIDEO GRID
-   ========================================= */
+/* VIDEO GRID */
 
 .video-grid {
     display: grid;
@@ -233,250 +133,134 @@ body {
     gap: 25px;
 }
 
-/* =========================================
-   VIDEO CARD
-   ========================================= */
+/* VIDEO CARD */
 
 .video-card {
-    background: #12131a;
+    background: #121219;
 
-    border: 1px solid #22242e;
+    border: 1px solid #24242e;
 
-    border-radius: 16px;
-
-    overflow: hidden;
-
-    position: relative;
-
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
-
-    box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.18);
-}
-
-/* Hover */
-
-.video-card:hover {
-    transform: translateY(-8px);
-
-    border-color: rgba(255, 23, 68, 0.55);
-
-    box-shadow:
-        0 18px 45px rgba(0, 0, 0, 0.45),
-        0 0 25px rgba(255, 23, 68, 0.06);
-}
-
-/* =========================================
-   THUMBNAIL
-   ========================================= */
-
-.thumbnail {
-    height: 190px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    position: relative;
+    border-radius: 15px;
 
     overflow: hidden;
-
-    background:
-        linear-gradient(
-            135deg,
-            #292b37,
-            #15161e
-        );
-}
-
-/* Thumbnail overlay */
-
-.thumbnail::after {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(0, 0, 0, 0.35),
-            transparent 60%
-        );
-
-    pointer-events: none;
-}
-
-/* =========================================
-   PLAY BUTTON
-   ========================================= */
-
-.play {
-    width: 62px;
-
-    height: 62px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    background: #ff1744;
-
-    border-radius: 50%;
-
-    font-size: 23px;
-
-    position: relative;
-
-    z-index: 2;
-
-    box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.45);
 
     transition:
         transform 0.25s ease,
+        border-color 0.25s ease,
         box-shadow 0.25s ease;
 }
 
-.video-card:hover .play {
-    transform: scale(1.12);
+.video-card:hover {
+    transform: translateY(-7px);
 
-    box-shadow:
-        0 0 0 8px rgba(255, 23, 68, 0.08),
-        0 10px 35px rgba(0, 0, 0, 0.55);
+    border-color: #ff1744;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
-/* =========================================
-   VIDEO PLAYER
-   ========================================= */
+/* VIDEO */
 
 .video-card iframe {
     display: block;
 
     width: 100%;
 
-    aspect-ratio: 16 / 9;
-
     border: none;
-
-    background: #000;
 }
 
-/* =========================================
-   VIDEO TEXT
-   ========================================= */
+/* THUMBNAIL */
+
+.thumbnail {
+    height: 210px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(135deg, #292936, #101016);
+}
+
+.play {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #ff1744;
+
+    border-radius: 50%;
+
+    font-size: 25px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* TITLES */
 
 .video-card h3 {
-    padding: 16px 17px 5px;
-
     font-size: 17px;
 
-    font-weight: 700;
+    padding: 16px 16px 7px;
 
-    color: #ffffff;
-
-    white-space: nowrap;
-
-    overflow: hidden;
-
-    text-overflow: ellipsis;
+    line-height: 1.4;
 }
 
 .video-card p {
-    padding: 0 17px 17px;
+    color: #888894;
 
-    color: #858793;
+    padding: 0 16px 17px;
 
     font-size: 14px;
 }
 
-/* =========================================
-   FOOTER
-   ========================================= */
+/* FOOTER */
 
 footer {
     margin-top: 80px;
 
-    padding: 40px 20px;
+    padding: 35px 20px;
 
     text-align: center;
 
-    background: #0e0f15;
+    background: #0d0d13;
 
-    border-top: 1px solid #20222b;
+    border-top: 1px solid #22222c;
 
-    color: #70717c;
+    color: #777783;
 
     font-size: 14px;
 }
 
-/* =========================================
-   SCROLLBAR
-   ========================================= */
-
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #07080c;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #30323c;
-
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #ff1744;
-}
-
-/* =========================================
-   TABLET
-   ========================================= */
+/* TABLET */
 
 @media (max-width: 900px) {
 
     .video-grid {
         grid-template-columns: repeat(2, 1fr);
-
-        gap: 20px;
     }
 
-    .search {
-        width: 240px;
-    }
-
-    .hero {
-        min-height: 400px;
+    .hero h1 {
+        font-size: 42px;
     }
 }
 
-/* =========================================
-   MOBILE
-   ========================================= */
+/* PHONE */
 
 @media (max-width: 600px) {
 
     .navbar {
         flex-direction: column;
 
-        padding: 15px 5%;
+        gap: 15px;
 
-        gap: 14px;
+        padding: 15px 5%;
     }
 
     .logo {
-        font-size: 25px;
+        font-size: 24px;
     }
 
     .search {
@@ -484,15 +268,11 @@ footer {
     }
 
     .hero {
-        min-height: 360px;
-
-        padding: 60px 20px;
+        min-height: 350px;
     }
 
     .hero h1 {
-        font-size: 40px;
-
-        letter-spacing: -1.5px;
+        font-size: 34px;
     }
 
     .hero p {
@@ -500,13 +280,7 @@ footer {
     }
 
     .container {
-        width: 92%;
-
-        margin: 40px auto;
-    }
-
-    .section-title {
-        font-size: 25px;
+        width: 94%;
     }
 
     .video-grid {
@@ -515,26 +289,7 @@ footer {
         gap: 20px;
     }
 
-    .thumbnail {
-        height: 220px;
-    }
-
-    .video-card h3 {
-        font-size: 16px;
+    .section-title {
+        font-size: 25px;
     }
 }
-
-/* =========================================
-   VERY SMALL PHONES
-   ========================================= */
-
-@media (max-width: 380px) {
-
-    .hero h1 {
-        font-size: 34px;
-    }
-
-    .thumbnail {
-        height: 200px;
-    }
-    }
